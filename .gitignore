@@ -1,0 +1,16 @@
+# Xcode
+*.xcodeproj/
+!*.xcodeproj/project.pbxproj
+xcuserdata/
+*.xcworkspace/
+DerivedData/
+
+# Build artifacts
+xcframework/
+build/
+
+# macOS
+.DS_Store
+
+# Vendor (submodule managed)
+vendor/ghostty/.zig-cache/

@@ -1,0 +1,49 @@
+// swift-tools-version: 5.9
+name: PJTerminal
+options:
+  bundleIdPrefix: com.pjw
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "16.0"
+  createIntermediateGroups: true
+  defaultConfig: Debug
+
+settings:
+  base:
+    SWIFT_VERSION: "5"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+
+targets:
+  PJTerminal:
+    type: application
+    platform: macOS
+    sources:
+      - path: PJTerminal
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.pjw.pj-terminal
+        PRODUCT_NAME: PJTerminal
+        INFOPLIST_FILE: PJTerminal/Info.plist
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        FRAMEWORK_SEARCH_PATHS:
+          - "$(PROJECT_DIR)/xcframework"
+        LD_RUNPATH_SEARCH_PATHS:
+          - "@executable_path/../Frameworks"
+        ENABLE_HARDENED_RUNTIME: false
+        CODE_SIGN_IDENTITY: "-"
+        SWIFT_STRICT_CONCURRENCY: "minimal"
+        OTHER_LDFLAGS:
+          - "-lstdc++"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    dependencies:
+      - framework: xcframework/GhosttyKit.xcframework
+        embed: false
+      - sdk: Carbon.framework
+      - sdk: CoreGraphics.framework
+      - sdk: CoreText.framework
+      - sdk: Metal.framework
+    entitlements:
+      path: PJTerminal/PJTerminal.entitlements

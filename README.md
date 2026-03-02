@@ -159,6 +159,10 @@ Or open `PJTerminal.xcodeproj` in Xcode after running `make xcframework && make 
 - **No configuration UI** — uses Ghostty's default config files (`~/.config/ghostty/config`)
 - **macOS arm64 only** — the xcframework is built for Apple Silicon
 
+## See also
+
+**[pj-terminal-vt](https://github.com/pjwalstrom/pj-terminal-vt)** — A companion project that builds a terminal emulator using only `libghostty-vt`, Ghostty's lightweight standalone VT parser library. Unlike this project which delegates rendering and input to GhosttyKit's full embedding framework, pj-terminal-vt implements its own PTY management, VT state machine, screen buffer, and CoreText renderer (~900 lines of Swift). It uses libghostty-vt for SGR attribute parsing, OSC command parsing, and key encoding. Also built entirely with GitHub Copilot CLI.
+
 ## Acknowledgments
 
 - [Ghostty](https://ghostty.org/) by Mitchell Hashimoto — the terminal engine
